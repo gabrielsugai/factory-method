@@ -9,9 +9,9 @@ class Invoice
   private
 
   def create_payment_method
-    case method_type
-    when 'pix' then PixPayment.create_payment_method
-    when 'credit_card' then CreditCardPayment.create_payment_method
+    case @method_type
+    when 'pix' then ::PixPayment.create_payment_method
+    when 'credit_card' then ::CreditCardPayment.create_payment_method
     else
       Payment.create_payment_method
     end
